@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t salehmajeed/docker-practice -f Dockerfile .
+
+
+script:
+  - docker run -e CI=TRUE salehmajeed/docker-practice npm run test
